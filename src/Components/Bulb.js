@@ -1,27 +1,24 @@
 // src/Components/Bulb.js
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
-import { toggleTheme } from '../feature/theme/themeSlice';
-import { toggleBulb } from '../feature/bulb/bulbSlice';
+import React, { useState } from "react";
 
-const Bulb = () => {
- const bulbOn = useSelector((state) => state.bulb.on);  const dispatch = useDispatch();
+function Bulb() {
+  const [isOn, setIsOn] = useState(false);
 
   return (
-    <div className="flex flex-col items-center my-8">
+    <div className="flex flex-col items-center mt-10">
       <div
-        className={`w-24 h-24 rounded-full shadow-lg ${
-          bulbOn ? 'bg-yellow-400' : 'bg-gray-300'
-        }`}
+        className={`w-32 h-32 rounded-full border-4 ${
+          isOn ? "bg-yellow-400 shadow-[0_0_60px_15px_rgba(253,224,71,0.8)]" : "bg-gray-300"
+        } transition duration-500`}
       ></div>
       <button
-        onClick={() => dispatch(toggleBulb())}
-        className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+        onClick={() => setIsOn(!isOn)}
+        className="mt-4 px-4 py-2 bg-yellow-500 text-white rounded shadow hover:bg-yellow-600"
       >
-        Turn {bulbOn ? 'Off' : 'On'}
+        Turn {isOn ? "Off" : "On"}
       </button>
     </div>
   );
-};
+}
 
 export default Bulb;

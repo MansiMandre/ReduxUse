@@ -1,3 +1,14 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom Theme Styles */
+.neon {
+  background-color: #000;
+  color: #39ff14;
+}
+
+.pastel {
+  background-color: #ffe4e1;
+  color: #6a5acd;
+}
